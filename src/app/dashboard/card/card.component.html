@@ -1,15 +1,21 @@
-<mat-card class="example-card">
+<mat-card class="example-card" ngsReveal>
   <mat-card-header>
-    <mat-card-title>{{card.name}}</mat-card-title>
+    <mat-card-title>{{ card.name }}</mat-card-title>
   </mat-card-header>
-  <img mat-card-image [src]="card.pic" alt="Photo of a Shiba Inu">
+
+  <img mat-card-image [src]="card.pic" alt="Photo of a Shiba Inu" />
+
   <mat-card-content>
     <p>
-      {{card.description}}
+      {{ card.description }}
     </p>
   </mat-card-content>
+
   <mat-card-actions>
-    <button mat-button>LIKE {{card.likes}}</button>
-    <button mat-button>SHARE</button>
+    <button [ngClass]="{'five': card.likes == 5, 'gt-ten': card.likes > 10}" (click)="onLike(card, index)" mat-button>
+      LIKE {{ card.likes }}
+    </button><div class="container"><div [id]="index"></div></div>
+
+    <button (click)="onShare()" mat-button>SHARE</button>
   </mat-card-actions>
 </mat-card>

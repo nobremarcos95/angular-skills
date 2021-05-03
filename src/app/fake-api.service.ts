@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { InMemoryDbService } from 'angular-in-memory-web-api';
+import { InMemoryDbService, RequestInfo } from 'angular-in-memory-web-api';
+
 
 @Injectable({
   providedIn: 'root'
@@ -21,4 +22,19 @@ export class FakeApiService implements InMemoryDbService {
 
     return { skills };
   }
+
+  // put(reqInfo: RequestInfo) {
+  //   const body = reqInfo.utils.getJsonBody(reqInfo.req) || {};
+  //   const skills = reqInfo.collection;
+
+  //   for (let skill of skills) {
+  //     if (skill.id === body.id) {
+  //       skill.likes = body.likes;
+
+  //       return Promise.resolve();
+  //     }
+  //   }
+
+  //   return Promise.reject();
+  // }
 }

@@ -1,2 +1,10 @@
 <!--TODO: melhorar o layout dos cards para exibir ao menos 2 por linha em telas > md, e pequenas (sm) 1 -->
-<app-card [card]="card" *ngFor="let card of cards"></app-card>
+<app-card *ngFor="let card of cards; let i = index" [index]="i" [card]="card"></app-card>
+
+<ngx-spinner bdColor="#263238"
+    size="medium"
+    color="white"
+    type="ball-clip-rotate"
+    fullScreen="true">
+    <p style="color: white">Carregando... </p>
+</ngx-spinner>
